@@ -3,22 +3,19 @@ main.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 
 	.when('/', {
-		templateUrl : 'index.html',
-		resolve : {
-			"check" : function($location) {
-				if (window.localStorage['token'] == null) {
-					$location.path('/');
-				} else
-					$location.path('/termine');
-			}
-		},
-		controller : 'loginController'
+		templateUrl : 'views/login.html',
+		controller : 'loginCtrl'
 	})
-	// TERMINE
-	
+	// LOGIN
+	.when('/emp/login', {
+		templateUrl : 'views/emp/login.html'
+	}).when('/sales/login', {
+		templateUrl : 'views/sales/login.html'
+	})
+
 	.otherwise({
 		redirectTo : '/'
 	});
 
-	$locationProvider.html5Mode(false);
+	$locationProvider.html5Mode(true);
 });

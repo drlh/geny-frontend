@@ -1,0 +1,117 @@
+<ul id="dropdownmenu" class="dropdown-content" ng-controller="LogoutCtrl">
+	<li>
+		<!-- <a>Benachrichtugungen {{pn}}</a> -->
+		<a href="#/settings">Einstellungen</a>
+	</li>
+	<li class="divider"></li>
+	<li>
+		<a ng-click="logMeOut()">Logout</a>
+	</li>
+</ul>
+
+<div class="navbar-fixed" ng-controller="NavbarCtrl">
+	<nav ng-controller="LogoutCtrl" class="indigo darken-4">
+		<div class="nav-wrapper">
+			<ul class="right">
+				<li>
+					<a class="dropdown-button" data-activates="dropdownmenu"> {{getUsername()}} <i class="fa fa-caret-down right" aria-hidden="true"></i></a>
+				</li>
+			</ul>
+			<div id="slide-out" class="side-nav white">
+				<div><img class="responsive-img" src="rsc/enerplex_logo-1.jpg">
+				</div>
+				<div>
+					<ul class="collapsible collapsible-accordion grey-text text-darken-3" data-collapsible="accordion">
+						<li>
+							<div class="collapsible-header">
+								<i class="fa fa-trello fa-3x" aria-hidden="true"></i>Termine
+							</div>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#/termine">Monats&uumlbersicht</a>
+									</li>
+									<li>
+										<a href="{{getTermineHeute()}}">Termine Heute</a>
+									</li>
+									<li>
+										<a href="{{getTermineWoche()}}">Termine der Woche</a>
+									</li>
+									<li>
+										<a href="#/termine/new">Neuer Termin</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="fa fa-building fa-3x" aria-hidden="true"></i>Kunden
+							</div>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#/kunden">Kunden&uumlbersicht</a>
+									</li>
+									<li ng-show="getAdmin() || getClerk()">
+										<a href="#/kunden/new">Kunde anlegen</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="fa fa-plane fa-3x" aria-hidden="true"></i>Urlaub
+							</div>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#/urlaub">Mein Urlaub</a>
+									</li>
+									<li ng-show="getAdmin() || getClerk()">
+										<a href="#/urlaub/all">Urlaubsverwaltung</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li ng-show="getAdmin() || getClerk()">
+							<div class="collapsible-header">
+								<i class="fa fa-user fa-3x" aria-hidden="true"></i>Mitarbeiter
+							</div>
+							<div class="collapsible-body">
+								<ul>
+									<li>
+										<a href="#/mitarbeiter">Mitarbeiter&uumlbersicht</a>
+									</li>
+									<li>
+										<a href="#/mitarbeiter/new">Mitarbeiter hinzuf&uumlgen</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<i class="fa fa-cog fa-3x" aria-hidden="true"></i><a href="#/settings" >Einstellungen</a>
+							</div>
+							<div class="collapsible-body"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="fa fa-bars" style="padding-left:0.25em;"></i></a>
+		</div>
+	</nav>
+</div>
+<script type="text/javascript">
+	// Initialize collapse button
+	$(".button-collapse").sideNav({
+		closeOnClick : true
+	});
+	// Initialize collapsible (uncomment the line below if you use the dropdown variation)
+	$('.collapsible').collapsible();
+	// Initialize dropdown button
+	$(".dropdown-button").dropdown({
+		constrain_width : false,
+		belowOrigin : true
+
+	}); 
+</script>

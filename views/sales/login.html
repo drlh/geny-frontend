@@ -1,0 +1,41 @@
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo center">Logo</a>
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><a href="/login/emp">Employee</a></li>
+			<li class="active"><a href="/login/sales">Sales</a></li>
+		</ul>
+	</div>
+</nav>
+
+<div class="row">
+	<div class="container" style="padding-top: 20px">
+		<div class="card" ng-controller="loginCtrl">
+			<div class="card-content">
+				<div class="center-align">
+					<span class="card-title"><img class="responsive-img"
+						src="rsc/enerplex_logo-1.jpg"></span>
+				</div>
+
+				<form ng-submit="newAuth()">
+					<div class="input-field col s12 m12">
+						<input id="email" type="email" class="validate"
+							ng-model="authData.mail" required> <label for="email"
+							class="active">Email</label>
+					</div>
+					<div class="input-field col s12 m12">
+						<input id="password" type="password" class="validate"
+							ng-model="authData.password" required> <label
+							for="password" class="active">Passwort</label>
+					</div>
+					<div class="center-align">
+						<button type="submit"
+							class="waves-effect waves-light btn indigo darken-4 ">
+							Anmelden</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
