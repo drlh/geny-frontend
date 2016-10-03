@@ -7,10 +7,10 @@ main.config(function($routeProvider, $locationProvider) {
 		controller : 'loginCtrl'
 	})
 	// LOGIN
-	.when('/emp/login', {
-		templateUrl : 'views/emp/login.html'
+	.when('/empl/login', {
+		templateUrl : 'views/empl/empl_login.html'
 	}).when('/sales/login', {
-		templateUrl : 'views/sales/login.html'
+		templateUrl : 'views/sales/sales_login.html'
 	})
 
 	.otherwise({
