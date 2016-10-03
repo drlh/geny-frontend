@@ -1,0 +1,28 @@
+{
+  "name": "appfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drlh/geny-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drlh/geny-frontend/issues"
+  },
+  "homepage": "https://github.com/drlh/geny-frontend.git#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "csurf": "^1.8.3",
+    "express": "^4.13.4",
+    "forms": "^1.1.4",
+    "jade": "^1.11.0",
+    "xtend": "^4.0.1"
+  }
+}

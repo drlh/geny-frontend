@@ -1,20 +1,46 @@
-<html>
-<head>
-<!--Import Google Icon Font-->
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"
-	media="screen,projection" />
+<!doctype html>
+<html ng-app="Main">
 
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript" src="js/angular.min.js"></script>
-</head>
+	<head>
+		<base href="/">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Social Media Analysis</title>
 
-<body>
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
-</html
+		<!-- Architektur -->
+		<script type="text/javascript" src="js/common/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="js/common/ng/angular.min.js"></script>
+		<script type="text/javascript" src="js/common/ng/angular-resource.min.js"></script>
+		<script type="text/javascript" src="js/common/ng/angular-touch.min.js"></script>
+		<script type="text/javascript" src="js/common/ng/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/common/ng/angular-local-storage.min.js"></script>
+		<script type="text/javascript" src="js/common/materialize.js"></script>
+	<!-- 	<script type="text/javascript" src="js/common/responsive-calendar.js"></script> -->
+
+		<!-- App -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/services.js"></script>
+		<script type="text/javascript" src="js/routing.js"></script>
+
+		<!-- Styles -->
+		<link type="text/css" rel="stylesheet" href="css/mod.css" media="screen,projection" />
+<!-- 		<link type="text/css" rel="stylesheet" href="css/responsive-calendar.css" /> -->
+		<link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+
+		<!-- Icons -->
+		<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+		<link type="text/css" rel="stylesheet" href="css/material-icons.css">
+
+		<!-- Controller -->
+
+
+		<!-- Plugins -->
+		<script type="text/javascript" src="js/common/plugins/moment.js"></script>
+		<script type="text/javascript" src="js/common/plugins/moment-timezone-with-data.js"></script>
+	</head>
+
+	<body>
+		<div ng-view></div>
+	</body>
+
+</html>
