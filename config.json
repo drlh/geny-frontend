@@ -1,0 +1,17 @@
+{
+	"app" : {
+		"name" : "Social Media Analysis"
+	},
+	"routing" : {
+		"login_empl" : "/empl/login",
+		"logout_empl" : "/empl/logout",
+		"login_sales" : "/sales/login",
+		"logout_sales" : "/sales/logout"
+	},
+	"labels" : {
+		"login" : {
+			"emp" : "Employee Login",
+			"sales" : "Sales Login"
+		}
+	}
+}

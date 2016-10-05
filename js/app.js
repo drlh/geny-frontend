@@ -1,6 +1,9 @@
 var main = angular.module('Main',
 		[ 'Main', 'ngResource', 'ngRoute', 'ngTouch' ]);
 
-main.run([ '$rootScope', function($rootScope) {
-
+main.run([ '$rootScope', '$http', 'Config', function($rootScope, $http, Config) {
+	
+	$rootScope.config = Config;
+	console.log($rootScope.config);
+	
 } ]);
