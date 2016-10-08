@@ -4,6 +4,6 @@ var main = angular.module('Main',
 main.run([ '$rootScope', '$http', 'Config', function($rootScope, $http, Config) {
 	
 	$rootScope.config = Config;
-	console.log($rootScope.config);
+	
 	
 } ]);
