@@ -61,3 +61,19 @@ main.factory('Contacts', function($resource, $rootScope) {
 			});
 	return r;
 });
+
+main.factory('DBContacts', function($resource, $rootScope) {
+	var url = $rootScope.config.app.url_back;
+	var api = $rootScope.config.api;
+	
+	var r = $resource(url + api.getSubmittedContacts,
+			{}, {
+				'get' : {
+					method : 'GET',
+					headers : {
+						'Content-Type' : 'application/json'
+					}
+				}
+			});
+	return r;
+});

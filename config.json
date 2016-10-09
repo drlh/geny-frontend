@@ -1,49 +1,77 @@
 {
 	"app": {
 		"name": "COCA - Social Media Analysis",
-		"host" : "localhost",
-		"port_front" : "8080",
-		"port_back" : "3000",
-		"url_front" : "http://localhost:8080",
-		"url_back" : "http://localhost:3000"
+		"host": "localhost",
+		"port_front": "8080",
+		"port_back": "3000",
+		"url_front": "http://localhost:8080",
+		"url_back": "http://localhost:3000"
 	},
 	"routing": {
 		"login_empl": "/#/empl/login",
 		"logout_empl": "/#/empl/logout",
 		"login_sales": "/#/sales/login",
+		"dashboard_sales" : "#/sales/dash",
 		"logout_sales": "/#/api/sales/logout",
-		"login_xing" : "http://localhost:3000/api/xing/login"
+		"login_xing": "http://localhost:3000/api/xing/login"
 	},
-	"api" : {
-		"getEmployeeDetails" : "/api/xing/me",
-		"getContactIds" : "/api/xing/contactids",
-		"getContacts" : "/api/xing/contacts"
+	"api": {
+		"getEmployeeDetails": "/api/xing/me",
+		"getContactIds": "/api/xing/contactids",
+		"getContacts": "/api/xing/contacts",
+		"getSubmittedContacts": "/api/sales/contacts"
 	},
 	"labels": {
 		"login": {
 			"empl": "Employee Login",
 			"sales": "Sales Login",
-			"xing" : "Login mit Xing"
+			"xing": "Login mit Xing",
+			"login": "Einloggen"
 		},
-		"empl" : {
-			"welcome" : "Hi, ",
-			"title" : "Verwaltung - Deine Daten",
-			"lbl_allCont" : "Anzahl Kontakte",
-			"lbl_relCont" : "Freigebene Kontake",
-			"lbl_name" : "Name",
-			"lbl_bday" : "Gebrutsdatum",
-			"lbl_email" : "Email",
-			"lbl_phone" : "Tel. Nr.",
-			"lbl_mobile" : "Mobil",
-			"lbl_position" : "Position",
-			"lbl_sum_contacts" : "Übermittelte Kontakte",
-			"lbl_sum_total" : "Kontakte auf XING",
-			"btn_grat" : "Kontakte freigeben",
-			"btn_revoke" : "Freigabe zurückziehen",
-			"cnt_agreement" : "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden."
+		"empl": {
+			"welcome": "Hi, ",
+			"title": "Verwaltung - Deine Daten",
+			"lbl_allCont": "Anzahl Kontakte",
+			"lbl_relCont": "Freigebene Kontake",
+			"lbl_name": "Name",
+			"lbl_bday": "Gebrutsdatum",
+			"lbl_email": "Email",
+			"lbl_phone": "Tel. Nr.",
+			"lbl_mobile": "Mobil",
+			"lbl_position": "Position",
+			"lbl_sum_contacts": "Übermittelte Kontakte",
+			"lbl_sum_total": "Kontakte auf XING",
+			"btn_grat": "Kontakte freigeben",
+			"btn_update": "Kontakte aktualisieren",
+			"btn_revoke": "Freigabe zurückziehen",
+			"cnt_agreement": "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden."
 		},
-		"sales" : {}
+		"sales": {
+			"tbl_empl": "Angestellter",
+			"btn_setInterested": "Interessanter Kontakt",
+			"btn_setUninterested": "Nicht relevant",
+			"btn_setContacted": "Kontaktieren",
+			"btn_setNegotiation": "Verhandlung starten",
+			"btn_setDeal": "Als abgeschlossen markieren",
+			"lbl_head": "Sales Dashboard",
+			"lbl_pool": "Kontaktpool",
+			"lbl_lead": "Oportunity",
+			"lbl_sale": "Closure",
+			"table": {
+				"title": "Position",
+				"company": "Unternehmen",
+				"status": "Status",
+				"employee" : "Angestellter"
+			}
+		}
 	},
-	"_trash": {
+	"status": {
+		"NEW": "Neu",
+		"INTERESTING": "Interessant",
+		"UNINTERESTING": "Nicht-interessant",
+		"CONTACTED": "Kontaktiert",
+		"INTERESTED": "Kontakt hat Interesse",
+		"NEGOTIATION": "Verhandlungen laufen",
+		"DEAL": "Deal"
 	}
 }

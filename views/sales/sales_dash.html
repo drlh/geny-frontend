@@ -1,0 +1,220 @@
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo center">Logo</a>
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><a href="/login/empl">Employee</a></li>
+			<li class="active"><a href="/login/sales">Sales</a></li>
+		</ul>
+	</div>
+</nav>
+
+<main>
+<div class="container" ng-controller="salesCtrl" ng-init="initSales()">
+	<div class="center-align">
+		<h4>{{labels.lbl_head}}</h4>
+		<div class="row">
+			<div class="card-panel">
+				<div class="input-field">
+					<label for="icon_prefix">Suche</label> <input id="icon_prefix"
+						type="text" class="validate active" ng-model="sort.searchString">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s3"><a href="#tabpool">{{labels.lbl_pool}}</a>
+					</li>
+					<li class="tab col s3"><a href="#tablead">{{labels.lbl_lead}}</a>
+					</li>
+					<li class="tab col s3"><a href="#tabsales">{{labels.lbl_sale}}</a>
+					</li>
+				</ul>
+			</div>
+			<div id="tabpool" class="col s12 container">
+				<table class="highlight ">
+					<thead>
+						<tr>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'company' ; sort.reverse = !sort.reverse">
+									{{labels.table.company}} <span
+									ng-show="sort.type == 'company' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'company' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'position' ; sort.reverse = !sort.reverse">
+									{{labels.table.title}} <span
+									ng-show="sort.type == 'position' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'position' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th class="hide-on-small-only">{{labels.table.status}}</th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
+									{{labels.table.employee}} <span
+									ng-show="sort.type == 'employee.displayname' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'employee.displayname' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="x in data.pool | orderBy:sort.type:sort.reverse | filter:sort.searchString"
+							ng-click="showDetailsPool(x)">
+							<td>{{ x.company }}</td>
+							<td>{{ x.position }}</td>
+							<td class="hide-on-small-only">{{ x.status }}</td>
+							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="tablead" class="col s12 container">
+				<table class="highlight ">
+					<thead>
+						<tr>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'company' ; sort.reverse = !sort.reverse">
+									{{labels.table.company}} <span
+									ng-show="sort.type == 'company' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'company' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'position' ; sort.reverse = !sort.reverse">
+									{{labels.table.title}} <span
+									ng-show="sort.type == 'position' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'position' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th class="hide-on-small-only">{{labels.table.status}}</th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
+									{{labels.table.employee}} <span
+									ng-show="sort.type == 'employee.displayname' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'employee.displayname' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="x in data.lead | orderBy:sort.type:sort.reverse | filter:sort.searchString"
+							ng-click="showDetailsOpportunity(x)">
+							<td>{{ x.company }}</td>
+							<td>{{ x.position }}</td>
+							<td class="hide-on-small-only">{{ x.status }}</td>
+							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="tabsales" class="col s12 container">
+				<table class="highlight ">
+					<thead>
+						<tr>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'company' ; sort.reverse = !sort.reverse">
+									{{labels.table.company}} <span
+									ng-show="sort.type == 'company' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'company' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'position' ; sort.reverse = !sort.reverse">
+									{{labels.table.title}} <span
+									ng-show="sort.type == 'position' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'position' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+							<th class="hide-on-small-only">{{labels.table.status}}</th>
+							<th><a href="{{routes.dashboard_sales}}#"
+								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
+									{{labels.table.employee}} <span
+									ng-show="sort.type == 'employee.displayname' && !sort.reverse"
+									class="fa fa-caret-down"></span> <span
+									ng-show="sort.type == 'employee.displayname' && sort.reverse"
+									class="fa fa-caret-up"></span>
+							</a></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="x in data.sale | orderBy:sort.type:sort.reverse | filter:sort.searchString"
+							ng-click="showDetailsSale(x)">
+							<td>{{ x.company }}</td>
+							<td>{{ x.position }}</td>
+							<td class="hide-on-small-only">{{ x.status }}</td>
+							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- Add Button Sichtbar �ber das Attribut ng-show-->
+	<div class="row container">
+		<div class="fixed-action-btn" ng-show="true">
+			<a class="btn-floating btn-large waves-effect waves-light red"
+				href="#/mitarbeiter/new"><i class="fa fa-plus"
+				aria-hidden="true"></i></a>
+		</div>
+	</div>
+</div>
+
+<!-- Modals -->
+
+<div id="modalpool" class="modal">
+	<div class="modal-content">
+		<h4>modalpool</h4>
+		<p>{{html.message}}</p>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
+	</div>
+</div>
+<div id="modalopportunity" class="modal">
+	<div class="modal-content">
+		<h4>modalopportunity</h4>
+		<p>{{html.message}}</p>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
+	</div>
+</div>
+<div id="modalsale" class="modal">
+	<div class="modal-content">
+		<h4>{{html.labels.delHead}}</h4>
+		<div>
+			Sind sie sicher, dass die den Antrag <b>{{html.labels.delHoliday}}</b>
+			vom <b>{{html.labels.delStart}}</b> bis zum <b>{{html.labels.delEnd}}</b>
+			l&oumlschen m&oumlchten?
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-action modal-close waves-effect waves-green btn-flat">Nein</a>
+		<a ng-click="deleteHoliday(html.labels.delHoliday)"
+			class="modal-action modal-close waves-effect waves-green btn-flat">Ja</a>
+
+	</div>
+</div>
+<!-- Modals --> </main>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('ul.tabs').tabs();
+		$('.modal-trigger').leanModal();
+	});
+</script>

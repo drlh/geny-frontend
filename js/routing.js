@@ -11,6 +11,8 @@ main.config(function($routeProvider, $locationProvider) {
 		templateUrl : 'views/empl/empl_login.html'
 	}).when('/sales/login', {
 		templateUrl : 'views/sales/sales_login.html'
+	}).when('/sales/dash', {
+		templateUrl : 'views/sales/sales_dash.html'
 	})
 
 	.otherwise({
