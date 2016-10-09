@@ -62,6 +62,11 @@
 				"company": "Unternehmen",
 				"status": "Status",
 				"employee" : "Angestellter"
+			},
+			"charts" : {
+				"lbl_companies" : "Verteilung nach Unternehmen",
+				"lbl_position" : "Verteilung nach Positionen",
+				"lbl_employee" : "Verteilung nach Angestellten"
 			}
 		}
 	},

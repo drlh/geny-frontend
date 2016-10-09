@@ -5,3 +5,13 @@
 .fa-caret-down:before {
 	content: "\f0d7"
 }
+
+.card-panel-mod {
+    transition: box-shadow .25s;
+    padding-left: 20px;
+    border-radius: 2px;
+    background-color: #fff;
+    padding-right: 20px;
+    padding-top: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}

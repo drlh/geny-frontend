@@ -14,7 +14,35 @@
 	<div class="center-align">
 		<h4>{{labels.lbl_head}}</h4>
 		<div class="row">
-			<div class="card-panel">
+			<ul class="collapsible" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">filter_drama</i>{{labels.charts.lbl_companies}}
+					</div>
+					<div class="collapsible-body">
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">place</i>{{labels.charts.lbl_position}}
+					</div>
+					<div class="collapsible-body">
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">whatshot</i>{{labels.charts.lbl_employee}}
+					</div>
+					<div class="collapsible-body">
+						<p>Lorem ipsum dolor sit amet.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="card-panel-mod">
 				<div class="input-field">
 					<label for="icon_prefix">Suche</label> <input id="icon_prefix"
 						type="text" class="validate active" ng-model="sort.searchString">
@@ -216,5 +244,8 @@
 	$(document).ready(function() {
 		$('ul.tabs').tabs();
 		$('.modal-trigger').leanModal();
+		$('.collapsible').collapsible({
+		      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+		    });
 	});
 </script>
