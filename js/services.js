@@ -77,3 +77,11 @@ main.factory('DBContacts', function($resource, $rootScope) {
 			});
 	return r;
 });
+
+main.factory('Headers', function() {
+	var data = {
+		'Content-Type' : 'application/json'
+	};
+
+	return data;
+});

@@ -1,8 +1,7 @@
 <ng-include src="'views/partial/empl_login.html'"></ng-include>
-
+<main ng-controller="emplCtrl" ng-init="initEmpl()">
 <div class="row">
-	<div class="container" style="padding-top: 20px"
-		ng-controller="emplCtrl" ng-init="initEmpl()">
+	<div class="container" style="padding-top: 20px">
 		<div class="card">
 			<div class="card-content">
 				<div class="center-align">
@@ -44,42 +43,90 @@
 						</div>
 					</div>
 				</div>
-				<div class="row center-align">
-					<div class="col m6 s6">
-						<h5>
-							{{labels.lbl_sum_contacts}} :
-							<bold>{{data.ui.submitted_contacts}}</bold>
-						</h5>
-					</div>
-					<div class="col m6 s6">
-						<h5>
-							{{labels.lbl_sum_total}} :
-							<bold>{{data.ui.total_contacts}}</bold>
-						</h5>
-					</div>
-				</div>
-				<div class="row center-align">
-					<div class="col m4 s4"></div>
-					<div class="col m4 s4">
-						<a
-							class="waves-effect waves-light btn {{  agreement ? '' : 'disabled' }}"><i
-							class="material-icons right">send</i>{{labels.btn_grat}}</a>
-						<p>
-							<input type="checkbox" id="ch1" ng-model="agreement" /> <label
-								for="ch1">{{labels.cnt_agreement}}</label>
-						</p>
-					</div>
-					<div class="col m4 s4"></div>
-				</div>
-				<div class="row  center-align">
-					<div class="col m4 s4"></div>
-					<div class="col m4 s4">
-						<a class="waves-effect waves-light btn red"><i
-							class="material-icons right">delete</i>{{labels.btn_revoke}}</a>
-					</div>
-					<div class="col m4 s4"></div>
-				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="container" style="padding-top: 20px">
+		<ul class="collapsible" data-collapsible="accordion">
+			<li>
+				<div class="collapsible-header">
+					<i class="material-icons">place</i>{{labels.lbl_reporting}}
+				</div>
+				<div class="collapsible-body" style="padding-top: 20px">
+					<div class="row center-align">
+						<div class="col m6 s6">
+							<h5>
+								{{labels.reporting.lbl_sum_contacts}} :
+								<bold>{{data.status.TOTAL}}</bold>
+							</h5>
+						</div>
+						<div class="col m6 s6">
+							<h5>
+								{{labels.reporting.lbl_sum_total}} :
+								<bold>{{data.ui.total_contacts}}</bold>
+							</h5>
+						</div>
+					</div>
+					<div class="row center-align">
+						<div class="col  m3 s3"></div>
+						<div class="col m6 s6">
+							<!-- CHART -->
+							<canvas id="myChart" width="300" height="300"></canvas>
+							<!-- CHART -->
+						</div>
+						<div class="col  m3 s3"></div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header active">
+					<i class="material-icons">filter_drama</i>{{labels.lbl_actions}}
+				</div>
+				<div class="collapsible-body" style="padding-top: 20px">
+					<div class="row center-align">
+						<div class="col m6 s6">
+							<a ng-click="postAllContacts()"
+								class="waves-effect waves-light btn {{  agreement ? '' : 'disabled' }}"><i
+								class="material-icons right">send</i>{{labels.btn_grat}}</a>
+							<p>
+								<input type="checkbox" id="ch1" ng-model="agreement" /> <label
+									for="ch1">{{labels.content.cnt_agreement}}</label>
+							</p>
+						</div>
+						<div class="col m6 s6">
+							<a	ng-click="deleteContacts()"
+								class="waves-effect waves-light btn red {{  revoke ? '' : 'disabled' }}"><i
+								class="material-icons right">delete</i>{{labels.btn_revoke}}</a>
+							<p>
+								<input type="checkbox" id="ch2" ng-model="revoke" /> <label
+									for="ch2">{{labels.content.cnt_revoke}}</label>
+							</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- Modals -->
+<div id="modalinfo" class="modal">
+	<div class="modal-content">
+		<h4>{{html.header}}</h4>
+		<p>{{html.message}}</p>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
+	</div>
+</div>
+<!-- Modals --> </main>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('.modal-trigger').leanModal();
+		$('.collapsible').collapsible({
+			accordion : false
+		// A setting that changes the collapsible behavior to expandable instead of the default accordion style
+		});
+	});
+</script>

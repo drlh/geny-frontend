@@ -11,7 +11,7 @@
 		"login_empl": "/#/empl/login",
 		"logout_empl": "/#/empl/logout",
 		"login_sales": "/#/sales/login",
-		"dashboard_sales" : "#/sales/dash",
+		"dashboard_sales": "#/sales/dash",
 		"logout_sales": "/#/api/sales/logout",
 		"login_xing": "http://localhost:3000/api/xing/login"
 	},
@@ -19,7 +19,13 @@
 		"getEmployeeDetails": "/api/xing/me",
 		"getContactIds": "/api/xing/contactids",
 		"getContacts": "/api/xing/contacts",
-		"getSubmittedContacts": "/api/sales/contacts"
+		"getSubmittedContacts": "/api/sales/contacts",
+		"getContactStatus": "/api/empl/status",
+		"postEmployee": "/api/empl",
+		"getEmployee": "/api/empl",
+		"postContacts": "/api/empl/contacts",
+		"postContact" : "/api/empl/conctact/add",
+		"deleteContacts" : "/api/empl/contacts"
 	},
 	"labels": {
 		"login": {
@@ -39,12 +45,19 @@
 			"lbl_phone": "Tel. Nr.",
 			"lbl_mobile": "Mobil",
 			"lbl_position": "Position",
-			"lbl_sum_contacts": "Übermittelte Kontakte",
-			"lbl_sum_total": "Kontakte auf XING",
+			"lbl_actions": "Aktionen",
 			"btn_grat": "Kontakte freigeben",
 			"btn_update": "Kontakte aktualisieren",
 			"btn_revoke": "Freigabe zurückziehen",
-			"cnt_agreement": "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden."
+			"lbl_reporting": "Reporting",
+			"content" : {
+			"cnt_agreement": "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden.",
+			"cnt_revoke": "Ich bin mir dessen bewusst, dass hiermit alle Kontakte entfernt werden ungeachtet in welchem Status sich diese befinden!"
+			},
+			"reporting": {
+				"lbl_sum_contacts": "Übermittelte Kontakte",
+				"lbl_sum_total": "Kontakte auf XING"
+			}
 		},
 		"sales": {
 			"tbl_empl": "Angestellter",
@@ -55,18 +68,18 @@
 			"btn_setDeal": "Als abgeschlossen markieren",
 			"lbl_head": "Sales Dashboard",
 			"lbl_pool": "Kontaktpool",
-			"lbl_lead": "Oportunity",
+			"lbl_lead": "Opportunity",
 			"lbl_sale": "Closure",
 			"table": {
 				"title": "Position",
 				"company": "Unternehmen",
 				"status": "Status",
-				"employee" : "Angestellter"
+				"employee": "Angestellter"
 			},
-			"charts" : {
-				"lbl_companies" : "Verteilung nach Unternehmen",
-				"lbl_position" : "Verteilung nach Positionen",
-				"lbl_employee" : "Verteilung nach Angestellten"
+			"charts": {
+				"lbl_companies": "Verteilung nach Unternehmen",
+				"lbl_position": "Verteilung nach Positionen",
+				"lbl_employee": "Verteilung nach Angestellten"
 			}
 		}
 	},
