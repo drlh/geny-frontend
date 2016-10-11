@@ -1,13 +1,5 @@
 
-<nav>
-	<div class="nav-wrapper">
-		<a href="#" class="brand-logo center">Logo</a>
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="/login/empl">Employee</a></li>
-			<li class="active"><a href="/login/sales">Sales</a></li>
-		</ul>
-	</div>
-</nav>
+<ng-include src="'views/partial/sales_nav.html'"></ng-include>
 
 <main>
 <div class="container" ng-controller="salesCtrl" ng-init="initSales()">
@@ -16,35 +8,18 @@
 		<div class="row">
 			<ul class="collapsible" data-collapsible="accordion">
 				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">filter_drama</i>{{labels.charts.lbl_companies}}
+					<div class="collapsible-header active">
+						<i class="material-icons">pie_chart</i>{{labels.charts.lbl_reporting}}
 					</div>
 					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">place</i>{{labels.charts.lbl_position}}
-					</div>
-					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">whatshot</i>{{labels.charts.lbl_employee}}
-					</div>
-					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
-					</div>
-				</li>
-				<li>
-					<div class="collapsible-header">
-						<i class="material-icons">whatshot</i>{{labels.charts.lbl_Status}}
-					</div>
-					<div class="collapsible-body">
-						<p>Lorem ipsum dolor sit amet.</p>
+						<div class="row">
+							<div class="col s6">
+								<p>{{labels.charts.lbl_sum_contacts}} : 0</p>
+
+								<p>{{labels.charts.lbl_sum_employees}} : 0</p>
+							</div>
+							<div class="col s6"></div>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -63,8 +38,6 @@
 					<li class="tab col s3"><a href="#tabpool">{{labels.lbl_pool}}</a>
 					</li>
 					<li class="tab col s3"><a href="#tablead">{{labels.lbl_lead}}</a>
-					</li>
-					<li class="tab col s3"><a href="#tabsales">{{labels.lbl_sale}}</a>
 					</li>
 				</ul>
 			</div>
@@ -88,7 +61,6 @@
 									ng-show="sort.type == 'position' && sort.reverse"
 									class="fa fa-caret-up"></span>
 							</a></th>
-							<th class="hide-on-small-only">{{labels.table.status}}</th>
 							<th><a href="{{routes.dashboard_sales}}#"
 								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
 									{{labels.table.employee}} <span
@@ -105,7 +77,6 @@
 							ng-click="showDetailsPool(x)">
 							<td>{{ x.company }}</td>
 							<td>{{ x.position }}</td>
-							<td class="hide-on-small-only">{{ x.status }}</td>
 							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
 						</tr>
 					</tbody>
@@ -131,7 +102,6 @@
 									ng-show="sort.type == 'position' && sort.reverse"
 									class="fa fa-caret-up"></span>
 							</a></th>
-							<th class="hide-on-small-only">{{labels.table.status}}</th>
 							<th><a href="{{routes.dashboard_sales}}#"
 								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
 									{{labels.table.employee}} <span
@@ -144,54 +114,9 @@
 					</thead>
 					<tbody>
 						<tr
-							ng-repeat="x in data.lead | orderBy:sort.type:sort.reverse | filter:sort.searchString"
-							ng-click="showDetailsOpportunity(x)">
+							ng-repeat="x in data.lead | orderBy:sort.type:sort.reverse | filter:sort.searchString">
 							<td>{{ x.company }}</td>
 							<td>{{ x.position }}</td>
-							<td class="hide-on-small-only">{{ x.status }}</td>
-							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div id="tabsales" class="col s12 container">
-				<table class="highlight ">
-					<thead>
-						<tr>
-							<th><a href="{{routes.dashboard_sales}}#"
-								ng-click="sort.type = 'company' ; sort.reverse = !sort.reverse">
-									{{labels.table.company}} <span
-									ng-show="sort.type == 'company' && !sort.reverse"
-									class="fa fa-caret-down"></span> <span
-									ng-show="sort.type == 'company' && sort.reverse"
-									class="fa fa-caret-up"></span>
-							</a></th>
-							<th><a href="{{routes.dashboard_sales}}#"
-								ng-click="sort.type = 'position' ; sort.reverse = !sort.reverse">
-									{{labels.table.title}} <span
-									ng-show="sort.type == 'position' && !sort.reverse"
-									class="fa fa-caret-down"></span> <span
-									ng-show="sort.type == 'position' && sort.reverse"
-									class="fa fa-caret-up"></span>
-							</a></th>
-							<th class="hide-on-small-only">{{labels.table.status}}</th>
-							<th><a href="{{routes.dashboard_sales}}#"
-								ng-click="sort.type = 'employee.displayname' ; sort.reverse = !sort.reverse">
-									{{labels.table.employee}} <span
-									ng-show="sort.type == 'employee.displayname' && !sort.reverse"
-									class="fa fa-caret-down"></span> <span
-									ng-show="sort.type == 'employee.displayname' && sort.reverse"
-									class="fa fa-caret-up"></span>
-							</a></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr
-							ng-repeat="x in data.sale | orderBy:sort.type:sort.reverse | filter:sort.searchString"
-							ng-click="showDetailsSale(x)">
-							<td>{{ x.company }}</td>
-							<td>{{ x.position }}</td>
-							<td class="hide-on-small-only">{{ x.status }}</td>
 							<td>{{ x.employee.firstname}} {{ x.employee.lastname}}</td>
 						</tr>
 					</tbody>
@@ -203,7 +128,7 @@
 
 <!-- Modals -->
 
-<div id="modalpool" class="modal">
+<div id="modalinfo" class="modal">
 	<div class="modal-content">
 		<h4>modalpool</h4>
 		<p>{{html.message}}</p>
@@ -212,33 +137,7 @@
 		<a class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
 	</div>
 </div>
-<div id="modalopportunity" class="modal">
-	<div class="modal-content">
-		<h4>modalopportunity</h4>
-		<p>{{html.message}}</p>
-	</div>
-	<div class="modal-footer">
-		<a class="modal-action modal-close waves-effect waves-green btn-flat ">Ok</a>
-	</div>
-</div>
-<div id="modalsale" class="modal">
-	<div class="modal-content">
-		<h4>{{html.labels.delHead}}</h4>
-		<div>
-			Sind sie sicher, dass die den Antrag <b>{{html.labels.delHoliday}}</b>
-			vom <b>{{html.labels.delStart}}</b> bis zum <b>{{html.labels.delEnd}}</b>
-			l&oumlschen m&oumlchten?
-
-		</div>
-	</div>
-	<div class="modal-footer">
-		<a class="modal-action modal-close waves-effect waves-green btn-flat">Nein</a>
-		<a ng-click="deleteHoliday(html.labels.delHoliday)"
-			class="modal-action modal-close waves-effect waves-green btn-flat">Ja</a>
-
-	</div>
-</div>
-<!-- Modals --> </main>
+</main>
 
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function() {

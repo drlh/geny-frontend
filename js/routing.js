@@ -3,12 +3,12 @@ main.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 
 	.when('/', {
-		templateUrl : 'views/login.html',
+		templateUrl : 'views/start.html',
 		controller : 'loginCtrl'
 	})
 	// LOGIN
 	.when('/empl/login', {
-		templateUrl : 'views/empl/empl_login.html'
+		templateUrl : 'views/empl/empl_dash.html'
 	}).when('/sales/login', {
 		templateUrl : 'views/sales/sales_login.html'
 	}).when('/sales/dash', {

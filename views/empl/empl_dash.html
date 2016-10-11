@@ -1,44 +1,45 @@
-<ng-include src="'views/partial/empl_login.html'"></ng-include>
+<ng-include src="'views/partial/empl_nav.html'"></ng-include>
+
 <main ng-controller="emplCtrl" ng-init="initEmpl()">
 <div class="row">
 	<div class="container" style="padding-top: 20px">
-		<div class="card">
-			<div class="card-content">
-				<div class="center-align">
-					<span class="card-title"> {{labels.title}} </span>
-				</div>
-				<div class="row">
-					<div class="col m4 s4 center-align">
-						<img class="materialboxed" src="{{data.ui.picture}}">
-					</div>
-					<div class="col m8 s8">
+		<div class="center-align">
+			<h4>{{labels.lbl_head}}</h4>
+			<div class="card">
+				<div class="card-content">
+					<div class="row">
+						<div class="col m4 s4 center-align">
+							<img class="materialboxed" src="{{data.ui.picture}}">
+						</div>
+						<div class="col m8 s8">
 
-						<div class="center-align">
-							<div width="500">
-								<table class="responsive-table">
-									<thead>
-										<tr>
-											<th data-field="id">{{labels.lbl_name}}</a>
-											</th>
-											<th data-field="name">{{labels.lbl_bday}}</th>
-											<th data-field="email">{{labels.lbl_email}}</th>
-											<th data-field="phone">{{labels.lbl_phone}}</th>
-											<th data-field="mobile">{{labels.lbl_mobile}}</th>
-											<th data-field="position">{{labels.lbl_position}}</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><a href="{{data.ui.permalink}}" target="_blank">{{data.ui.display_name}}
-											</a></td>
-											<td>{{data.ui.birthday}}</td>
-											<td>{{data.ui.active_email}}</td>
-											<td>{{data.ui.phone}}</td>
-											<td>{{data.ui.mobile}}</td>
-											<td>{{data.ui.title}}</td>
-										</tr>
-									</tbody>
-								</table>
+							<div class="center-align">
+								<div width="500">
+									<table class="responsive-table">
+										<thead>
+											<tr>
+												<th data-field="id">{{labels.lbl_name}}</a>
+												</th>
+												<th data-field="name">{{labels.lbl_bday}}</th>
+												<th data-field="email">{{labels.lbl_email}}</th>
+												<th data-field="phone">{{labels.lbl_phone}}</th>
+												<th data-field="mobile">{{labels.lbl_mobile}}</th>
+												<th data-field="position">{{labels.lbl_position}}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><a href="{{data.ui.permalink}}" target="_blank">{{data.ui.display_name}}
+												</a></td>
+												<td>{{data.ui.birthday}}</td>
+												<td>{{data.ui.active_email}}</td>
+												<td>{{data.ui.phone}}</td>
+												<td>{{data.ui.mobile}}</td>
+												<td>{{data.ui.title}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -57,26 +58,24 @@
 				<div class="collapsible-body" style="padding-top: 20px">
 					<div class="row center-align">
 						<div class="col m6 s6">
+							<p>
 							<h5>
 								{{labels.reporting.lbl_sum_contacts}} :
 								<bold>{{data.status.TOTAL}}</bold>
 							</h5>
-						</div>
-						<div class="col m6 s6">
+							</p>
+							<p>
 							<h5>
 								{{labels.reporting.lbl_sum_total}} :
 								<bold>{{data.ui.total_contacts}}</bold>
 							</h5>
+							</p>
 						</div>
-					</div>
-					<div class="row center-align">
-						<div class="col  m3 s3"></div>
 						<div class="col m6 s6">
 							<!-- CHART -->
 							<canvas id="myChart" width="300" height="300"></canvas>
 							<!-- CHART -->
 						</div>
-						<div class="col  m3 s3"></div>
 					</div>
 				</div>
 			</li>
@@ -96,7 +95,7 @@
 							</p>
 						</div>
 						<div class="col m6 s6">
-							<a	ng-click="deleteContacts()"
+							<a ng-click="deleteContacts()"
 								class="waves-effect waves-light btn red {{  revoke ? '' : 'disabled' }}"><i
 								class="material-icons right">delete</i>{{labels.btn_revoke}}</a>
 							<p>

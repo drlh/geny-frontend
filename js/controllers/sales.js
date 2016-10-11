@@ -1,5 +1,6 @@
 main.controller('salesCtrl', function($rootScope, $scope, $location, DBContacts) {
 
+	$scope.app = $rootScope.config.app;
 	$scope.labels = $rootScope.config.labels.sales;
 	$scope.html = {
 			modalheader : "",
@@ -17,13 +18,9 @@ main.controller('salesCtrl', function($rootScope, $scope, $location, DBContacts)
 			all : [],
 			pool : [],
 			lead : [],
-			sale : []
+			unin : []
 		};
-	$scope.initSales = function() {
-
-		$scope.labels = $rootScope.config.labels.sales;
-	};
-
+	
 	$scope.initSales = function() {
 		
 		var data = new DBContacts();
@@ -38,11 +35,11 @@ main.controller('salesCtrl', function($rootScope, $scope, $location, DBContacts)
 					if (x.status == "NEW") {
 						$scope.data.pool.push(x);
 					}
-					if (x.status == "INTERESTING" || x.status == "CONTACTED" || x.status == "INTERESTED" ) {
+					if (x.status == "INTERESTING") {
 						$scope.data.lead.push(x);
 					}
-					if (x.status == "NEGOTIATION"  || x.status == "DEAL") {
-						$scope.data.sale.push(x);
+					if (x.status == "UNINTERESTING") {
+						$scope.data.unin.push(x);
 					}
 				}
 				console.log($scope.data);
@@ -52,22 +49,32 @@ main.controller('salesCtrl', function($rootScope, $scope, $location, DBContacts)
 		
 	};
 	
+	var init_getStatus = function() {
+		var header = Headers;
+		var host = $scope.app.url_back;
+		var path_get = $scope.api.getSubmittedContactsStatus;
+		var config = {
+			headers : header
+		}
+
+
+		$http.get(host + path_get).then(
+				function(response) {
+					$scope.data.status = response.data.result;
+					console.log($scope.data.status);
+					init_createChart();
+				}, function(response) {
+					openModal("Fehler", response.data.message);
+				});
+		
+	};
+	
 	$scope.showDetailsPool = function(data) {
-		$scope.html.modalheader = "modalpool";
+		$scope.html.modalheader = "Verknüpfung";
 		$scope.html.message = "m1";
-			$('#modalpool').openModal();
+			$('#modalinfo').openModal();
 	};
 	
-	$scope.showDetailsOpportunity = function(data) {
-		$scope.html.modalheader = "modalopportunity";
-		$scope.html.message = "m1";
-			$('#modalopportunity').openModal();
-	};
 	
-	$scope.showDetailsSale = function(data) {
-		$scope.html.modalheader = "modalsale";
-		$scope.html.message = "m1";
-			$('#modalsale').openModal();
-	};
 
 });

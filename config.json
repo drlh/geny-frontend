@@ -1,6 +1,6 @@
 {
 	"app": {
-		"name": "COCA - Social Media Analysis",
+		"name": "Atos Connections",
 		"host": "localhost",
 		"port_front": "8080",
 		"port_back": "3000",
@@ -20,6 +20,7 @@
 		"getContactIds": "/api/xing/contactids",
 		"getContacts": "/api/xing/contacts",
 		"getSubmittedContacts": "/api/sales/contacts",
+		"": "/api/sales/contacts/status",
 		"getContactStatus": "/api/empl/status",
 		"postEmployee": "/api/empl",
 		"getEmployee": "/api/empl",
@@ -36,7 +37,7 @@
 		},
 		"empl": {
 			"welcome": "Hi, ",
-			"title": "Verwaltung - Deine Daten",
+			"lbl_head": "Employee Dashboard",
 			"lbl_allCont": "Anzahl Kontakte",
 			"lbl_relCont": "Freigebene Kontake",
 			"lbl_name": "Name",
@@ -77,9 +78,10 @@
 				"employee": "Angestellter"
 			},
 			"charts": {
-				"lbl_companies": "Verteilung nach Unternehmen",
-				"lbl_position": "Verteilung nach Positionen",
-				"lbl_employee": "Verteilung nach Angestellten"
+				"lbl_reporting": "Reporting",
+				"lbl_sum_contacts" : "Eingereichte Kontakte",
+				"lbl_sum_employees" : "Teilnehmende Mitarbeiter",
+				"lbl_status" : "Verteilung nach Angestellten"
 			}
 		}
 	},

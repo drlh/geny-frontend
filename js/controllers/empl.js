@@ -7,6 +7,8 @@ main
 					$scope.labels = $rootScope.config.labels.empl;
 					$scope.app = $rootScope.config.app;
 					$scope.api = $rootScope.config.api;
+					$scope.routes = $rootScope.config.routing;
+					
 					$scope.status = $rootScope.config.status;
 					$scope.data = {};
 					$scope.agreement = false;
@@ -59,6 +61,7 @@ main
 								function(response) {
 									console.log(response);
 									openModal("Erfolg", response.data.message);
+									init_getStatus();
 								}, function(response) {
 									console.log(response);
 									openModal("Fehler", response.data.message);
@@ -86,6 +89,7 @@ main
 								function(response) {
 									console.log(response.data.data)
 									openModal("Erfolg", response.data.message);
+									init_getStatus();
 								}, function(response) {
 									openModal("Fehler", response.data.message);
 								});
@@ -168,7 +172,7 @@ main
 								});
 					};
 					
-					var init_getStatus= function() {
+					var init_getStatus = function() {
 						var header = Headers;
 						var host = $scope.app.url_back;
 						var path_get = $scope.api.getContactStatus;
@@ -198,18 +202,11 @@ main
 						Chart.defaults.global.legend.fullWidth = true;
 
 						var data = {
-							labels : [ "" + s.NEW, "" + s.INTERESTING,
-									"" + s.UNINTERESTING, "" + s.CONTACTED,
-									"" + s.INTERESTED, "" + s.NEGOTIATION,
-									"" + s.DEAL ],
+							labels : [ "" + s.NEW, "" + s.INTERESTING ],
 							datasets : [ {
-								data : [ d.NEW , d.INTERESTING , d.UNINTERESTING , d.CONTACTED , d.INTERESTED , d.NEGOTIATION , d.DEAL ],
-								backgroundColor : [ "#FF6384", "#36A2EB",
-										"#FFCE56", "#FF6384", "#36A2EB",
-										"#FFCE56" ],
-								hoverBackgroundColor : [ "#FF6384", "#36A2EB",
-										"#FFCE56", "#FF6384", "#36A2EB",
-										"#FFCE56", "#36A2EB" ]
+								data : [ d.NEW , d.INTERESTING ],
+								backgroundColor : [ "#FF6384", "#36A2EB"],
+								hoverBackgroundColor : [ "#FF6384", "#36A2EB"]
 							} ]
 						};
 						var ctx = document.getElementById("myChart")
