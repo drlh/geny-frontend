@@ -11,7 +11,7 @@
 		"login_empl": "/#/empl/login",
 		"logout_empl": "/#/empl/logout",
 		"login_sales": "/#/sales/login",
-		"dashboard_sales": "#/sales/dash",
+		"dashboard_sales": "/#/sales/dash",
 		"logout_sales": "/#/api/sales/logout",
 		"login_xing": "http://localhost:3000/api/xing/login"
 	},
@@ -20,13 +20,14 @@
 		"getContactIds": "/api/xing/contactids",
 		"getContacts": "/api/xing/contacts",
 		"getSubmittedContacts": "/api/sales/contacts",
-		"": "/api/sales/contacts/status",
+		"getSubmittedContactsStatus": "/api/sales/contacts/status",
+		"putSubmittedContactStatus" : "/api/sales/contact/status",
 		"getContactStatus": "/api/empl/status",
 		"postEmployee": "/api/empl",
 		"getEmployee": "/api/empl",
 		"postContacts": "/api/empl/contacts",
-		"postContact" : "/api/empl/conctact/add",
-		"deleteContacts" : "/api/empl/contacts"
+		"postContact": "/api/empl/conctact/add",
+		"deleteContacts": "/api/empl/contacts"
 	},
 	"labels": {
 		"login": {
@@ -51,9 +52,9 @@
 			"btn_update": "Kontakte aktualisieren",
 			"btn_revoke": "Freigabe zurückziehen",
 			"lbl_reporting": "Reporting",
-			"content" : {
-			"cnt_agreement": "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden.",
-			"cnt_revoke": "Ich bin mir dessen bewusst, dass hiermit alle Kontakte entfernt werden ungeachtet in welchem Status sich diese befinden!"
+			"content": {
+				"cnt_agreement": "Hiermit bin ich einverstanden, dass meine dargestellen Daten mit meinen anonymisierten Kontakten an COCA übermittelt werden.",
+				"cnt_revoke": "Ich bin mir dessen bewusst, dass hiermit alle Kontakte entfernt werden ungeachtet in welchem Status sich diese befinden!"
 			},
 			"reporting": {
 				"lbl_sum_contacts": "Übermittelte Kontakte",
@@ -71,17 +72,25 @@
 			"lbl_pool": "Kontaktpool",
 			"lbl_lead": "Opportunity",
 			"lbl_sale": "Closure",
+			"details": {
+				"lbl_details": "Details des Atos-Kontaktes",
+				"lbl_phone": "Tel. Nr.:",
+				"lbl_name": "Name",
+				"lbl_mail": "E-Mail:",
+				"lbl_mobile": "Mobil:",
+				"lbl_position" : "Position"
+			},
 			"table": {
 				"title": "Position",
 				"company": "Unternehmen",
 				"status": "Status",
-				"employee": "Angestellter"
+				"employee": "Atos-Kontakt"
 			},
 			"charts": {
 				"lbl_reporting": "Reporting",
-				"lbl_sum_contacts" : "Eingereichte Kontakte",
-				"lbl_sum_employees" : "Teilnehmende Mitarbeiter",
-				"lbl_status" : "Verteilung nach Angestellten"
+				"lbl_sum_contacts": "Eingereichte Kontakte",
+				"lbl_sum_employees": "Teilnehmende Mitarbeiter",
+				"lbl_status": "Verteilung nach Angestellten"
 			}
 		}
 	},

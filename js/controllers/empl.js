@@ -200,6 +200,7 @@ main
 						var d = $scope.data.status;
 						Chart.defaults.global.legend.position = "right";
 						Chart.defaults.global.legend.fullWidth = true;
+						Chart.defaults.global.responsive = false;
 
 						var data = {
 							labels : [ "" + s.NEW, "" + s.INTERESTING ],

@@ -1,33 +1,33 @@
 
 <ng-include src="'views/partial/sales_nav.html'"></ng-include>
 
-<div class="row" ng-controller="salesCtrl">
+
+<main ng-controller="salesCtrl">
+<div class="row">
 	<div class="container" style="padding-top: 20px">
 		<div class="card">
 			<div class="card-content">
 				<div class="center-align">
 					<span class="card-title"><img class="responsive-img"
-						src="rsc/enerplex_logo-1.jpg"></span>
+						src="res/ac_logo.png"></span>
 				</div>
 
-				<form ng-submit="salesAuth()">
+				<form>
 					<div class="input-field col s12 m12">
-						<input id="email" type="email" class="validate"
-							ng-model="authData.mail" required> <label for="email"
-							class="active">Email</label>
+						<input id="email" type="text" class="validate"> <label
+							for="email" class="active">User</label>
 					</div>
 					<div class="input-field col s12 m12">
-						<input id="password" type="password" class="validate"
-							ng-model="authData.password" required> <label
+						<input id="password" type="password" class="validate"> <label
 							for="password" class="active">Passwort</label>
 					</div>
-					<div class="center-align">
-						<button type="submit"
-							class="waves-effect waves-light btn indigo darken-4 ">
-							Anmelden</button>
-					</div>
 				</form>
+				<div class="center-align">
+					<a href="{{routes.dashboard_sales}}"
+						class="waves-effect waves-light btn indigo darken-4 ">Anmelden</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+</main>
